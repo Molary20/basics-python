@@ -1,14 +1,28 @@
-expenses = [500, 1200, 300, 750, 900, 400, 650]
+RUBLE_WORDS = {"руб", "рубль", "рубля", "рублей"}
+KOPECK_WORDS = {"коп", "копейка", "копейки", "копеек"}
 
-total = sum(expenses)
-average = total / len(expenses)
-minimum = min(expenses)
-maximum = max(expenses)
+parts = input().lower().split()
 
-result = (minimum, maximum, total)
+try:
+    if len(parts) == 2 and parts[1] in RUBLE_WORDS:
+        rubles = int(parts[0])
+        kopecks = 0
 
-print("Сумма:", total)
-print("Среднее:", average)
-print("Минимум:", minimum)
-print("Максимум:", maximum)
-print("Кортеж:", result)
+    elif (
+            len(parts) == 4
+            and parts[1] in RUBLE_WORDS
+            and parts[3] in KOPECK_WORDS
+    ):
+        rubles = int(parts[0])
+        kopecks = int(parts[2])
+
+    else:
+        raise ValueError
+
+    if rubles < 0 or not 0 <= kopecks <= 99:
+        raise ValueError
+
+    print(f"{rubles}.{kopecks:02d} ₽")
+
+except ValueError:
+    print("Некорректный формат суммы")
