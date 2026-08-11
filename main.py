@@ -1,47 +1,14 @@
-category = input("Выберите категорию (напиток, суп, десерт): ").lower()
+expenses = [500, 1200, 300, 750, 900, 400, 650]
 
-match category:
-    case "напиток":
-        print("Чай, кофе, сок")
-        dish = input("Что выбираете? ").lower()
+total = sum(expenses)
+average = total / len(expenses)
+minimum = min(expenses)
+maximum = max(expenses)
 
-        match dish:
-            case "чай":
-                print("Цена: 100 рублей")
-            case "кофе":
-                print("Цена: 150 рублей")
-            case "сок":
-                print("Цена: 120 рублей")
-            case _:
-                print("Такого напитка нет.")
+result = (minimum, maximum, total)
 
-    case "суп":
-        print("Борщ, щи, суп-пюре")
-        dish = input("Что выбираете? ").lower()
-
-        match dish:
-            case "борщ":
-                print("Цена: 250 рублей")
-            case "щи":
-                print("Цена: 220 рублей")
-            case "суп-пюре":
-                print("Цена: 270 рублей")
-            case _:
-                print("Такого супа нет.")
-
-    case "десерт":
-        print("Торт, мороженое, фрукты")
-        dish = input("Что выбираете? ").lower()
-
-        match dish:
-            case "торт":
-                print("Цена: 300 рублей")
-            case "мороженое":
-                print("Цена: 180 рублей")
-            case "фрукты":
-                print("Цена: 200 рублей")
-            case _:
-                print("Такого десерта нет.")
-
-    case _:
-        print("Такой категории нет.")
+print("Сумма:", total)
+print("Среднее:", average)
+print("Минимум:", minimum)
+print("Максимум:", maximum)
+print("Кортеж:", result)
