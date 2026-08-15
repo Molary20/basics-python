@@ -1,28 +1,13 @@
-RUBLE_WORDS = {"руб", "рубль", "рубля", "рублей"}
-KOPECK_WORDS = {"коп", "копейка", "копейки", "копеек"}
+while True:
+    print("\nМеню управления расходами:")
+    print("1. Добавить расход")
+    print("2. Показать все расходы")
+    print("3. Показать сумму и средний расход")
+    print("4. Удалить расход по номеру")
+    print("5. Выход")
 
-parts = input().lower().split()
+    choice = input("Выберите действие: ")
 
-try:
-    if len(parts) == 2 and parts[1] in RUBLE_WORDS:
-        rubles = int(parts[0])
-        kopecks = 0
-
-    elif (
-            len(parts) == 4
-            and parts[1] in RUBLE_WORDS
-            and parts[3] in KOPECK_WORDS
-    ):
-        rubles = int(parts[0])
-        kopecks = int(parts[2])
-
-    else:
-        raise ValueError
-
-    if rubles < 0 or not 0 <= kopecks <= 99:
-        raise ValueError
-
-    print(f"{rubles}.{kopecks:02d} ₽")
-
-except ValueError:
-    print("Некорректный формат суммы")
+    if choice == "5":
+        print("Выход из программы.")
+        break
